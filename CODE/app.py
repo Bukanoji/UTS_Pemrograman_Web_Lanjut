@@ -7,6 +7,9 @@ app.register_blueprint(menu_bp)
 app.register_blueprint(category_bp)
 app.register_blueprint(order_bp)
 
+def handler(request):
+    return app(request.environ, start_response)
+
 if __name__ == '__main__':
     db.create_all()
     app.run(debug=True)
